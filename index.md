@@ -2,7 +2,7 @@
 
 ## About Me
 
-My name is Joshua Martinez. I am a senior at Western Oregon University in Monmouth, Oregon. I am a transfer student from Linn-Benton Community College in Albany, Oregon. test
+My name is Joshua Martinez. I am a senior at Western Oregon University in Monmouth, Oregon. I am a transfer student from Linn-Benton Community College in Albany, Oregon. thing here
 
 
 ## Homework Assignments
