@@ -1,14 +1,86 @@
 body {
-    background-color: lightblue;
+    background-color: coral;
 }
-
+.coverBack{
+    background-image: url("../images/sonic-pattern.png");
+}
 h1 {
-    color: navy;
+    color: whitesmoke;
     margin-left: 20px;
+    text-shadow: 3px 2px red;
+    text-align: center;
 }
 
-p {
+des {
     color: red;
     font-family: verdana;
+    text-align: center;
+    text-shadow: 3px 2px black;
+    justify-content: center;
+    margin-left: 25px;
+    margin-right: 25px;
+    
+}
+des.solid {
+    border-style: solid;
+    border-color: whitesmoke;
+    border-radius: 5px;
+}
+
+div.firstP {
+    border-style: solid;
+    border-color: crimson;
+    border-radius: 5px;  
+    background-color: grey;
+}
+div.leftP{
+    border-style: solid;
+    border-color: burlywood;
+    border-radius: 5px;
+    margin-right: 75px;
+    background-color: cornflowerblue;
+    font-size: medium;
+}
+div.rightP{
+    border-style: solid;
+    border-color: burlywood;
+    border-radius: 5px; 
+    margin-left: 75px;
+    background-color: cornflowerblue;
+    font-size: medium;
+}
+
+insideP {
+    color: red;
+    text-emphasis-color: white;
+    font-family: verdana;
+    text-align: center;
+    justify-content: center;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+div.marText{
+    text-align: center;
+    font-size: medium;
+    word-wrap: break-word;
+}
+div.seper {
+    margin-bottom: 150px;
+    margin-top: 50px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+div.seperTwo {
+    margin-top: 100px;
+    margin-bottom: 150px;
+}
+div.pics{
+    margin-left: 10px;
+    margin-right: 10px;
+    border-style: solid;
+    border-color: whitesmoke;
+    border-radius: 5px;
+    background-color: gray;
+    text-decoration-color: antiquewhite;
 }
 
