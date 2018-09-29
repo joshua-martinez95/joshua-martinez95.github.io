@@ -6,4 +6,4 @@ My name is Joshua Martinez. I am a senior at Western Oregon University in Monmou
 
 
 ## Homework Assignments
-[Homework 1](homework1/index.html)
+[Homework Assignments for CS 460](homework1/portMain-cs460.md)
