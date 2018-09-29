@@ -7,4 +7,4 @@
 
 # Link to finished project:
 
-### [Homepage]()
+### [Homepage](../homework1/index.html)
