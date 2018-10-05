@@ -31,7 +31,15 @@
          </form>
          </div>
          <div class="col-4 card bg-success text-white">
-         Country: What country are you going to say you are from?
+         Faction: What faction will you be a part of?
+         <select id="faction">
+                <option value="None">None</option>
+                <option value="Bullet Club">Bullet Club</option>
+                <option value="Chaos">Chaos</option>
+                <option value="Suzuki-Gun">Suzuki-Gun</option>
+                <option value="The NWO">NWO</option>
+                <option value="The Undisputed Era">Undisputed Era</option>
+         </select>
          </div>
         </div>
         <div class="row">
@@ -49,7 +57,7 @@
          Last Name:<br>
          <input id="lN">
          <form>
-         <button onclick="check()" id="submit">Get your worker name</button>
+         <button type = "button" onclick="check()" id="button">Get your working name!</button>
          </form>
         </div>
          </div>
@@ -57,6 +65,7 @@
         </div>
         <div class="col-md-6 offset-md-3 card bg-primary text-white">
          your introduction will go like: 
+         <p id="intro"></p>
         </div>
 
         </div>
