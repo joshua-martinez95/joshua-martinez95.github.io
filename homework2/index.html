@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel = "stylesheet" href = "../css/bootstrap.min.css">
         <link rel = "stylesheet" href = "styles.css">
+        <script src="scriptJava.js"></script>
         <div class= "container titleName bg-secondary text-white">Get Your Wrestler Name!</div>
 </head>
 <body>
@@ -22,6 +23,12 @@
         <div class="row justify-content-around">
          <div class="col-4 card bg-success text-white">
          Gender:
+         <form>
+                 <input type="radio" name="gender" value="male">Male<br>
+                 <input type="radio" name="gender" value="female">Female<br>
+                 <input type="radio" name="gender" value="other">Other<br>
+
+         </form>
          </div>
          <div class="col-4 card bg-success text-white">
          Country: What country are you going to say you are from?
@@ -33,10 +40,17 @@
                         Enter your first and last name below: 
         <div class="row justify-content-around">
         <div class="col">
-         First text box
+         <form> 
+         First Name:<br>
+         <input id="fN">
+         </form>
          </div>
         <div class="col">
-         Last Name text box
+         Last Name:<br>
+         <input id="lN">
+         <form>
+         <button onclick="check()" id="submit">Get your worker name</button>
+         </form>
         </div>
          </div>
         </div>
