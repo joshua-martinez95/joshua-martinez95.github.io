@@ -20,7 +20,7 @@ function introduction(first, last, group){
     else if (group == "Bullet Club") {
         audio = new Audio('songs/BC.mp3');
         audio.play();
-        document.getElementById('logo').src='pictures/BCLogo.jpg';
+        document.getElementById('logo').src='pictures/BClogo.jpg';
     }
     else if (group == "Chaos") {
         audio = new Audio('songs/Okada.mp3');
