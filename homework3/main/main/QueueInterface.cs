@@ -1,12 +1,9 @@
 ﻿using System;
-
-public class hw3
-{
     /// <summary>
     /// a FIFO queu interface. For a singly linked queue
     /// </summary>
     /// <typeparam name="T"></typeparam>
-	public interface QueueInterface<T>
+	interface QueueInterface<T>
 	{
         ///Add an element to the end of the queue
         ///
@@ -24,4 +21,3 @@ public class hw3
 
         bool isEmpty();
 	}
-}
