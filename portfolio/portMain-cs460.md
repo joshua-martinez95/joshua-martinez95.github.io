@@ -7,6 +7,8 @@ Here is a list of links for the assignments I have done in CS460. Each one of th
 
 ### [Homework 2](port-cs460-hw2.md)
 
+### [Homework 3](port-cs460-hw3.md)
+
 # Return to?
 ### [Code Repo](https://github.com/joshua-martinez95/joshua-martinez95.github.io) 
 ### [Home](../index.md)
