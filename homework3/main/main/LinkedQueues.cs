@@ -4,16 +4,25 @@ using System;
 
 public class LinkedQueues<T> : QueueInterface<T>
 {
+        /// <summary>
+        /// dtermines what's in front or behind the node
+        /// </summary>
         private Node<T> front;
         private Node<T> rear;
-
+        /// <summary>
+        /// Linked nodes
+        /// </summary>
         public LinkedQueues()
         {
             front = null;
             rear = null;
 
         }
-
+        /// <summary>
+        /// actual push method
+        /// </summary>
+        /// <param name="element"></param>
+        /// <returns></returns>
         public T push(T element)
         {
             if (element == null)
@@ -34,6 +43,10 @@ public class LinkedQueues<T> : QueueInterface<T>
             }
             return element;
         }
+        /// <summary>
+        /// actual pop method. returns the top node
+        /// </summary>
+        /// <returns></returns>
         public T pop()
         {
             T tmp = default(T);
@@ -56,7 +69,10 @@ public class LinkedQueues<T> : QueueInterface<T>
             }
             return tmp;
         }
-
+        /// <summary>
+        /// if empty, do this
+        /// </summary>
+        /// <returns></returns>
         public bool isEmpty()
         {
             if ( front == null && rear == null)

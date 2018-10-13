@@ -9,14 +9,11 @@
         ///
         /// return the elemtn that was enqueued
         ///
-        
         T push(T element);
 
         /// removes and returns the front element
         /// 
         /// throws Thrown if the queue is empty
-
-        
         T pop();
 
         bool isEmpty();
