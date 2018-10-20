@@ -13,10 +13,41 @@ namespace project4.Controllers
             return View();
         }
 
-        public ActionResult About()
+        [HttpGet]
+        public ActionResult Converter()
         {
-            ViewBag.Message = "Your application description page.";
+            string input = Request.QueryString["miles"];
+            string unitMetric = Request.QueryString["units"];
+            System.Diagnostics.Debug.WriteLine(unitMetric);
+            double result = -1;
 
+            if (input == null)
+            {
+            }
+            else
+            {
+                double miles = Convert.ToDouble(input);
+
+                switch (unitMetric)
+                {
+                    case "millimeters":
+                        result = result * 1609344;
+                        break;
+                    case "centimeters":
+                        result = result * 160934.4;
+                        break;
+                    case "meters":
+                        result = result * 1609.344;
+                        break;
+                    case "kilometers":
+                        result = result * 1.609344;
+                        break;
+                    default:
+                        result = 0;
+                        break;
+                }
+                ViewBag.statement = input + " miles is equal to " + Convert.ToString(result) + " " + unitMetric;
+            }
             return View();
         }
 

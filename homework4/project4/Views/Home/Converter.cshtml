@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "Convert";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>@ViewBag.Message</h2>
+
+<div class="row">
+    <h2>Convert Miles to Metric</h2>
+    <form method="get" form action="/Home/Converter">
+        <div class="col-md-6">
+            Miles <br> <input type="number" name="miles" />
+        </div>
+        <div class="col-md-6">
+            <h4>Select a unit</h4>
+            <hr>
+            <input type="radio" name="units" value="millimeters" checked />millimeters
+            <br>
+            <input type="radio" name="units" value="centimeters" />centimeters
+            <br>
+            <input type="radio" name="units" value="meters" />meters
+            <br>
+            <input type="radio" name="units" value="kilometers" />kilometers
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <button type="submit" name="submitInfo">Convert </button>
+                @if (ViewBag.statement != null)
+                {
+                    <h2>@ViewBag.statement</h2>
+                }
+            </div>
+        </div>
+    </form>
+ </div>
