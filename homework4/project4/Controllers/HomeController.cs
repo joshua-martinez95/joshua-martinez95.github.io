@@ -19,14 +19,14 @@ namespace project4.Controllers
             string input = Request.QueryString["miles"];
             string unitMetric = Request.QueryString["units"];
             System.Diagnostics.Debug.WriteLine(unitMetric);
-            double result = -1;
+            double result = 0;
 
             if (input == null)
             {
             }
             else
             {
-                double miles = Convert.ToDouble(input);
+                result = Convert.ToDouble(input);
 
                 switch (unitMetric)
                 {
