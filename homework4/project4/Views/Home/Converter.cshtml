@@ -8,16 +8,20 @@
     <meta name="viewport" content="width=device-width" />
     <title>Converter</title>
 </head>
-
+<!-- Doing the rows to correctly format Miles and Units section-->
 <div class="row">
     <h2>Convert Miles to Metric</h2>
     <form method="get" form action="/Home/Converter">
+        <!-- This 'column' has the Miles section and the box for user input-->
         <div class="col-md-6">
             Miles <br> <input type="number" name="miles" />
         </div>
+        <!-- This 'column' holds the radio buttons-->
         <div class="col-md-6">
             <h4>Select a unit</h4>
+            <!-- Line-->
             <hr>
+            <!-- Radio buttons-->
             <input type="radio" name="units" value="millimeters" checked />millimeters
             <br>
             <input type="radio" name="units" value="centimeters" />centimeters
@@ -26,6 +30,7 @@
             <br>
             <input type="radio" name="units" value="kilometers" />kilometers
         </div>
+        <!--This will hold the Button and the statement-->
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <button class="btn btn-primary" type="submit" name="submitInfo">Convert </button>
