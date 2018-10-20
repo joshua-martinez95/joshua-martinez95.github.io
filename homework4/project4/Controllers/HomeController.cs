@@ -16,9 +16,13 @@ namespace project4.Controllers
         [HttpGet]
         public ActionResult Converter()
         {
+            //get input form the text box
             string input = Request.QueryString["miles"];
+            // get the units from the radio button
             string unitMetric = Request.QueryString["units"];
-            System.Diagnostics.Debug.WriteLine(unitMetric);
+
+            // show in debug the infromation
+            System.Diagnostics.Debug.WriteLine("The miles: " + input + " The units " + unitMetric);
             double result = 0;
 
             if (input == null)
@@ -26,8 +30,10 @@ namespace project4.Controllers
             }
             else
             {
+                // convert the input string into a double
                 result = Convert.ToDouble(input);
 
+                // switch case to do the math
                 switch (unitMetric)
                 {
                     case "millimeters":
@@ -46,8 +52,10 @@ namespace project4.Controllers
                         result = 0;
                         break;
                 }
+                // does the statement that will be printed
                 ViewBag.statement = input + " miles is equal to " + Convert.ToString(result) + " " + unitMetric;
             }
+            //returns the view
             return View();
         }
 
