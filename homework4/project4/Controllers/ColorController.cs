@@ -9,12 +9,21 @@ namespace project4.Controllers
 {
     public class ColorController : Controller
     {
-        // GET: Color
+        /// <summary>
+        /// GET method that allows user input
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult ColorChooser()
         {
             return View();
         }
+        /// <summary>
+        /// Post method that does the mixing of colors and posts the result
+        /// </summary>
+        /// <param name="priColor"></param>
+        /// <param name="secColor"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult ColorChooser(string priColor, string secColor)
         {
@@ -22,6 +31,10 @@ namespace project4.Controllers
             {
                 Color leftColor = ColorTranslator.FromHtml(priColor);
                 Color rightColor = ColorTranslator.FromHtml(secColor);
+
+                /// print to Debug
+                System.Diagnostics.Debug.WriteLine("priColor = " + priColor);
+                System.Diagnostics.Debug.WriteLine("secColor = " + secColor);
 
                 // initializing combo values
                 int aCombo = leftColor.A + rightColor.A;
@@ -44,10 +57,14 @@ namespace project4.Controllers
                 // Do checking for Blue overflow
                 if (bCombo > 255)
                     bCombo = 255;
-
+                
+                // get the mixed color
                 Color mixedColor = Color.FromArgb(aCombo, rCombo, gCombo, bCombo);
 
-                // Assign values for viewbag for use in html
+                // new mixed color
+                System.Diagnostics.Debug.WriteLine("New mixed color: " + mixedColor);
+
+                // set viewbag variables to post on html
                 ViewBag.colorLeft = "width: 100px; height: 100px; border: 1px solid; background: " + ColorTranslator.ToHtml(leftColor) + "; ";
                 ViewBag.colorRight = "width: 100px; height: 100px; border: 1px solid; background: " + ColorTranslator.ToHtml(rightColor) + "; ";
                 ViewBag.colorMixed = "width: 100px; height: 100px; border: 1px solid; background: " + ColorTranslator.ToHtml(mixedColor) + "; ";
