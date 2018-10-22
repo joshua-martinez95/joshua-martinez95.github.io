@@ -193,7 +193,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Converter.cshtml" />
-    <Content Include="Views\Home\ColorChooser.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Color\ColorChooser.cshtml" />
   </ItemGroup>
