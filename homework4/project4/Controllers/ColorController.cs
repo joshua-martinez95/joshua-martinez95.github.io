@@ -19,7 +19,7 @@ namespace project4.Controllers
             return View();
         }
         /// <summary>
-        /// Post method that does the mixing of colors and posts the result
+        /// Post method that does the mixing of colors and posts the result 
         /// </summary>
         /// <param name="priColor"></param>
         /// <param name="secColor"></param>
