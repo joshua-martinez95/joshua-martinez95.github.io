@@ -13,6 +13,10 @@ namespace project4.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Get method to get inputed information
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult Converter()
         {
@@ -25,10 +29,16 @@ namespace project4.Controllers
             System.Diagnostics.Debug.WriteLine("The miles: " + input + " The units " + unitMetric);
             double result = 0;
 
+            // no Querystring errors
+            bool qError = false;
+
+            // normal case for when nothing is in text box
             if (input == null)
             {
             }
-            else
+
+            // once correct information is inputed
+            if(input != null && input != "" && qError == false)
             {
                 // convert the input string into a double
                 result = Convert.ToDouble(input);
@@ -49,11 +59,22 @@ namespace project4.Controllers
                         result = result * 1.609344;
                         break;
                     default:
+                        qError = true;
                         result = 0;
                         break;
                 }
-                // does the statement that will be printed
-                ViewBag.statement = input + " miles is equal to " + Convert.ToString(result) + " " + unitMetric;
+
+                /// if all went well do this
+                if (qError == false)
+                {
+                    // does the statement that will be printed
+                    ViewBag.statement = input + " miles is equal to " + Convert.ToString(result) + " " + unitMetric;
+                }
+                /// if an error
+                else
+                {
+                    ViewBag.statement = "Please don't do that";
+                }
             }
             //returns the view
             return View();
