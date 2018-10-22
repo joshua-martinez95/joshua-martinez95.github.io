@@ -79,12 +79,5 @@ namespace project4.Controllers
             //returns the view
             return View();
         }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }
