@@ -168,5 +168,6 @@ Only thing that was somewhat hard to use is setting the textboxes
 ```
 
 # 3.) Final Touches
+Link to video:
 
-![video_of-demo](../images/hw4DEMO.mp4)
+https://youtu.be/hhzP3ziEyfw
