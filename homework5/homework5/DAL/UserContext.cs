@@ -9,10 +9,10 @@ namespace homework5.DAL
 {
     public class UserContext : DbContext
     {
-        public UserContext() : base("name=SecondTry")
+        public UserContext() : base("name=OurUsers")
         {
 
         }
-        public virtual DbSet<OurUsers_withDB> Users { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }
