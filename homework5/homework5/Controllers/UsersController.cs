@@ -18,7 +18,7 @@ namespace homework5.Controllers
         // GET: Users
         public ActionResult Index()
         {
-            return View(db.Users.ToList());
+            return View(db.Users.ToList().OrderBy(item => item.TimeRequest));
         }
 
         // GET: Users/Create
