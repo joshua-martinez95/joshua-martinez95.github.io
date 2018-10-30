@@ -1,4 +1,4 @@
-# CS460 Homework 2
+# CS460 Homework 4
 
 # Shortcuts
 ### [Code Repo](https://github.com/joshua-martinez95/joshua-martinez95.github.io/tree/master/homework4) 

@@ -15,21 +15,30 @@ namespace homework5.Controllers
     {
         private UserContext db = new UserContext();
 
-        // GET: Users
+        /// <summary>
+        /// This will list the entires, sorted by Time and date
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
+            /// returns the table, sorted by time
             return View(db.Users.ToList().OrderBy(item => item.TimeRequest));
         }
 
-        // GET: Users/Create
+        /// <summary>
+        /// Display initial Create page
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Users/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Once the submission page is pressed, do this action
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,FirstName,LastName,PhoneNum,AptNumber,AptName,Comment,CheckBox,TimeRequest")] User user)

@@ -18,7 +18,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
     }
-
+    /* text format for image overlay*/
     .banner-text{
         text-align: center;
         position: absolute;
@@ -29,14 +29,17 @@
     }
 </style>
 <body>
+    <!-- Container that will hold banner -->
 <div class ="container" id="wrapper">
     <img src="../greenHill.png" alt="Green Hill Zone Apartments"/>
     <div class="centered banner-text"><h1 style="font-size:50px">Green Hill Zone Apartments</h1></div>
 </div>
 
+<!-- Link to create new entry -->
 <p>
     @Html.ActionLink("Make new request", "Create")
 </p>
+<!-- Display current table columns -->
 <table class="table">
     <tr>
         <th>
@@ -65,7 +68,7 @@
         </th>
         <th></th>
     </tr>
-
+<!-- Display actual table information -->
 @foreach (var item in Model) {
     <tr>
         <td>
