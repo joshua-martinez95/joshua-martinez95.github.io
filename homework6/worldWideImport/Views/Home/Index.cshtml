@@ -1,4 +1,4 @@
-﻿@model IEnumerable<worldWideImport.Models.Person>
+﻿@model IEnumerable<worldWideImport.Models.ViewModels.PersonVM>
 <style>
     .text-area {
         font-size: 45px;
@@ -49,10 +49,6 @@
     }
 </style>
 
-<div class="container-fluid center-block">
-    <div class="jumbotron" style="background-color: red">
-        <h1>World Wide Import</h1>
-    </div>
     @using (Html.BeginForm())
     {
         <div class="row">
@@ -68,18 +64,22 @@
             </div>
             <div class="col-md-4"></div>
         </div>
+        @ViewBag.result
         <div class="row">
-        <table>
-            @foreach (var row in Model)
+            @if (ViewBag.toggle == 1)
             {
-                <tr>
-                    <td>@row.PreferredName</td>
-                </tr>
-            }
+                <div class="col-md-4">
 
-            @ViewBag.result
-        </table>
+                    @foreach (var row in Model)
+                    {
+                        <div class="container" style="border: ridge; border-color: grey;">
+                            <div class="row" style="padding: 10px;">@Html.ActionLink(linkText: row.FullName + "\t" + "(" + row.PreferredName + ")", actionName: "Details", controllerName: "Home", routeValues: new { fName = row.FullName }, htmlAttributes: null)</div>
+                        </div>
+                        <br />
+                    }
+
+                </div>
+            }
         </div>
     }
-</div>
 <!--Use GET for this page-->

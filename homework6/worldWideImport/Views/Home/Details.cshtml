@@ -1,0 +1,12 @@
+﻿@model IEnumerable<worldWideImport.Models.ViewModels.PersonVM>
+
+<style>
+</style>
+
+<div class="container">
+    @foreach (var item in Model)
+    {
+        @Html.DisplayFor(modelItem => item.FullName);
+    }
+</div>
+
