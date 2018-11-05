@@ -1,12 +1,62 @@
 ﻿@model IEnumerable<worldWideImport.Models.ViewModels.PersonVM>
 
 <style>
+    .detailCon {
+        border-style: groove;
+        padding-left: 15px;
+        padding-right: 10px;
+        padding-bottom: 5px;
+        border-left-color: red;
+        border-right-color: powderblue;
+        border-bottom-color: sandybrown;
+        border-top-color: darkslateblue;
+        background-color: powderblue;
+    }
+    .FullName{
+        font-size: 40px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
 </style>
+<body>
 
 <div class="container">
+    <div class="row">
     @foreach (var item in Model)
     {
-        @Html.DisplayFor(modelItem => item.FullName);
+        <div class="col-md-6 detailCon">
+
+            <h4 class="FullName"> @Html.DisplayFor(modelItem => item.FullName) </h4>
+            <hr />
+            <div class="row">
+                <div class="col-md-4">
+                    Preferred Name:
+                    <br />
+                    Phone:
+                    <br />
+                    Fax:
+                    <br />
+                    Email:
+                    <br />
+                    Member Since:
+                </div>
+                <div class="col-md-4">
+                    @Html.DisplayFor(modelItem => item.PreferredName)
+                    <br />
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    <br />
+                    @Html.DisplayFor(modelItem => item.FaxNumber)
+                    <br />
+                    @Html.DisplayFor(modelItem => item.EmailAddress)
+                    <br />
+                    @item.ValidFrom.Date.ToString("MM/yyyy")
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-6"> <img src=".../vaultBoy.jpg" alt="Photo" /></div>
     }
+    </div>
 </div>
 
+</body>
