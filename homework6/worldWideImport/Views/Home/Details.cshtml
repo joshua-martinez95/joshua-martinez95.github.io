@@ -20,43 +20,187 @@
 </style>
 <body>
 
-<div class="container">
-    <div class="row">
-    @foreach (var item in Model)
-    {
-        <div class="col-md-6 detailCon">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 detailCon">
 
-            <h4 class="FullName"> @Html.DisplayFor(modelItem => item.FullName) </h4>
-            <hr />
-            <div class="row">
-                <div class="col-md-4">
-                    Preferred Name:
-                    <br />
-                    Phone:
-                    <br />
-                    Fax:
-                    <br />
-                    Email:
-                    <br />
-                    Member Since:
+                    <h4 class="FullName"> @Html.DisplayFor(modelItem => item.FullName) </h4>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-4">
+                            Preferred Name:
+                            <br />
+                            Phone:
+                            <br />
+                            Fax:
+                            <br />
+                            Email:
+                            <br />
+                            Member Since:
+                        </div>
+                        <div class="col-md-4">
+                            @Html.DisplayFor(modelItem => item.PreferredName)
+                            <br />
+                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                            <br />
+                            @Html.DisplayFor(modelItem => item.FaxNumber)
+                            <br />
+                            @Html.DisplayFor(modelItem => item.EmailAddress)
+                            <br />
+                            @item.ValidFrom.Date.ToString("MM/yyyy")
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    @Html.DisplayFor(modelItem => item.PreferredName)
-                    <br />
-                    @Html.DisplayFor(modelItem => item.PhoneNumber)
-                    <br />
-                    @Html.DisplayFor(modelItem => item.FaxNumber)
-                    <br />
-                    @Html.DisplayFor(modelItem => item.EmailAddress)
-                    <br />
-                    @item.ValidFrom.Date.ToString("MM/yyyy")
-                </div>
-            </div>
-
+                <div class="col-md-6"> <img src=".../vaultBoy.jpg" alt="Photo" /></div>
+            }
         </div>
-        <div class="col-md-6"> <img src=".../vaultBoy.jpg" alt="Photo" /></div>
-    }
+        <br />
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+                if (item.CompanyName != null || item.CompanyName != "")
+                {
+                    <div class="col-md-6 detailCon">
+
+                        <h4 class="FullName"> Company Profile </h4>
+                        <hr />
+
+                        <div class="col-md-4">
+                            Company:
+                            <br />
+                            Phone:
+                            <br />
+                            Fax:
+                            <br />
+                            Website:
+                            <br />
+                            Member Since:
+                        </div>
+                        <div class="col-md-4">
+                            @Html.DisplayFor(modelItem => item.CompanyName)
+                            <br />
+                            @Html.DisplayFor(modelItem => item.CompanyPhone)
+                            <br />
+                            @Html.DisplayFor(modelItem => item.CompanyFax)
+                            <br />
+                            @Html.DisplayFor(modelItem => item.CompanyWebsite)
+                            <br />
+                            @item.CompanyValidFrom.Date.ToString("MM/yyyy")
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+        <br />
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+                if (item.CompanyName != null || item.CompanyName != "")
+                {
+                    <div class="col-md-6 detailCon">
+
+                        <h4 class="FullName"> Purchase  </h4>
+                        <hr />
+
+                        <div class="col-md-4">
+                            Orders:
+                            <br />
+                            Gross Sales:
+                            <br />
+                            Gross Profit:
+                            <br />
+                        </div>
+                        <div class="col-md-4">
+                            @Html.DisplayFor(modelItem => item.Orders)
+                            <br />
+                            @Html.DisplayFor(modelItem => item.GrossSales)
+                            <br />
+                            @Html.DisplayFor(modelItem => item.GrossProfit)
+                            <br />
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 detailCon">
+
+                    <h4 class="FullName"> @Html.DisplayFor(modelItem => item.FullName) </h4>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-4">
+                            Preferred Name:
+                            <br />
+                            Phone:
+                            <br />
+                            Fax:
+                            <br />
+                            Email:
+                            <br />
+                            Member Since:
+                        </div>
+                        <div class="col-md-4">
+                            @Html.DisplayFor(modelItem => item.PreferredName)
+                            <br />
+                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                            <br />
+                            @Html.DisplayFor(modelItem => item.FaxNumber)
+                            <br />
+                            @Html.DisplayFor(modelItem => item.EmailAddress)
+                            <br />
+                            @item.ValidFrom.Date.ToString("MM/yyyy")
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6"> <img src=".../vaultBoy.jpg" alt="Photo" /></div>
+            }
+        </div>
+        <br />
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+                if (item.CompanyName != null || item.CompanyName != "")
+                {
+                    <div class="col-md-6 detailCon">
+
+                        <h4 class="FullName"> Company Profile </h4>
+                        <hr />
+
+                        <div class="col-md-4">
+                            Company:
+                            <br />
+                            Phone:
+                            <br />
+                            Fax:
+                            <br />
+                            Website:
+                            <br />
+                            Member Since:
+                        </div>
+                        <div class="col-md-4">
+                            @Html.DisplayFor(modelItem => item.CompanyName)
+                            <br />
+                            @Html.DisplayFor(modelItem => item.CompanyPhone)
+                            <br />
+                            @Html.DisplayFor(modelItem => item.CompanyFax)
+                            <br />
+                            @Html.DisplayFor(modelItem => item.CompanyWebsite)
+                            <br />
+                            @item.CompanyValidFrom.Date.ToString("MM/yyyy")
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+
+
     </div>
-</div>
 
 </body>
