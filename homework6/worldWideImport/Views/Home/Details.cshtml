@@ -19,13 +19,16 @@
 
 </style>
 <body>
-
+    <!-- This will div holds all the information-->
     <div class="container">
+        <!-- First Row -->
         <div class="row">
             @foreach (var item in Model)
             {
+                <!-- This will make a box filled with the information -->
                 <div class="col-md-6 detailCon">
 
+                    <!-- Displays the person information -->
                     <h4 class="FullName"> @Html.DisplayFor(modelItem => item.FullName) </h4>
                     <hr />
                     <div class="row">
@@ -53,10 +56,11 @@
                         </div>
                     </div>
                 </div>
+                <!-- Photo placeholder -->
                 <div class="col-md-6"> <img src="../../Images/vaultBoy.jpg" alt="Photo" width="220px" height="190px"/></div>
             }
         </div>
-
+        <!-- this will only show if person is a customer -->
         @if (ViewBag.MoreInfo == true)
         {
 
@@ -65,6 +69,7 @@
 
             @foreach (var item in Model)
             {
+                <!-- This will show the Company information -->
                 if (item.CompanyName != null || item.CompanyName != "")
                 {
                     <div class="col-md-6 detailCon">
@@ -102,7 +107,8 @@
         <div class="row">
 
             @foreach (var item in Model)
-            {
+            { 
+                <!-- This will show the purchase history -->
                 if (item.CompanyName != null || item.CompanyName != "")
                 {
                     <div class="col-md-6 detailCon">
@@ -135,10 +141,11 @@
         <div class="row">
 
                 <div class="col-md-6 detailCon">
-                    <h4 class="FullName"> Item Purchased</h4> <p>(10 Highest by Profit)</p>
+                    <h4 class="FullName"> Item Purchased (10 Highest by Profit) </h4>
                     <hr />
                     <div class="row">
                         <div class="col-md-4">
+                            <!-- This will display the table of top 10 products-->
                             <table class="table">
                                 <tr>
                                     <th>
