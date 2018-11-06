@@ -19,19 +19,19 @@ namespace worldWideImport.Models.ViewModels
         public string EmailAddress { get; set; }
         public DateTime ValidFrom { get; set; }
 
-        //Customer Company Details
+        //Customer Company Details information
         public string CompanyName { get; set; }
         public string CompanyPhone { get; set; }
         public string CompanyFax { get; set; }
         public string CompanyWebsite { get; set; }
         public DateTime CompanyValidFrom { get; set; }
 
-        //Purchase History Details
+        //Purchase History Details information
         public double Orders { get; set; }
         public decimal GrossSales { get; set; }
         public decimal GrossProfit { get; set; }
 
-        //Items Purchased Details. See ItemPurchased.cs
-        public List<PurchasedItem> PurchaseItemSummary { get; set; }
+        //Items Purchased Details information. Seen in PurchasedItem.cs
+        public List<PurchasedItem> ItemPurchaseList { get; set; }
     }
 }

@@ -48,24 +48,25 @@
         cursor: pointer;
     }
 </style>
-
+   <!--using razor form for html-->
     @using (Html.BeginForm())
     {
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4">
                 <div class="text-area">Client Search</div>
-
+                <!--This will be the text box for input-->
                 <label for="searchString"></label>
                 @Html.TextBox("searchString", null, htmlAttributes: new { @class = "form-control", required = "required" })
-                <!-- <input class="textboxFor" type="text" id="searchString" name="searchPhrase" placeholder="Search by client name"> -->
                 <button class="button">Search</button>
 
             </div>
             <div class="col-md-4"></div>
         </div>
+        <!--This will display a message if no results show up-->
         @ViewBag.result
         <div class="row">
+            <!--This will show up if there are results-->
             @if (ViewBag.toggle == 1)
             {
                 <div class="col-md-4">
@@ -73,6 +74,7 @@
                     @foreach (var row in Model)
                     {
                         <div class="container" style="border: ridge; border-color: grey;">
+                            <!--Displays the names along with a link to a details page-->
                             <div class="row" style="padding: 10px;">@Html.ActionLink(linkText: row.FullName + "\t" + "(" + row.PreferredName + ")", actionName: "Details", controllerName: "Home", routeValues: new { fName = row.FullName }, htmlAttributes: null)</div>
                         </div>
                         <br />

@@ -56,6 +56,10 @@
                 <div class="col-md-6"> <img src="../../Images/vaultBoy.jpg" alt="Photo" width="220px" height="190px"/></div>
             }
         </div>
+
+        @if (ViewBag.MoreInfo == true)
+        {
+
         <br />
         <div class="row">
 
@@ -103,7 +107,7 @@
                 {
                     <div class="col-md-6 detailCon">
 
-                        <h4 class="FullName"> Purchase  </h4>
+                        <h4 class="FullName"> Purchase History Summary </h4>
                         <hr />
 
                         <div class="col-md-4">
@@ -115,53 +119,66 @@
                             <br />
                         </div>
                         <div class="col-md-4">
-                            @Html.DisplayFor(modelItem => item.Orders)
+                            @string.Format("{0:C}", item.Orders)
                             <br />
-                            @Html.DisplayFor(modelItem => item.GrossSales)
+                            @string.Format("{0:C}", item.GrossSales)
                             <br />
-                            @Html.DisplayFor(modelItem => item.GrossProfit)
+                            @string.Format("{0:C}", item.GrossProfit)
                             <br />
                         </div>
                     </div>
                 }
             }
         </div>
-        <div class="row">
-            @foreach (var item in Model)
-            {
-                <div class="col-md-6 detailCon">
 
-                    <h4 class="FullName"> Item Purchased</h4> <h1>(10 Highest by Profit)</h1>
+        <br />
+        <div class="row">
+
+                <div class="col-md-6 detailCon">
+                    <h4 class="FullName"> Item Purchased</h4> <p>(10 Highest by Profit)</p>
                     <hr />
                     <div class="row">
                         <div class="col-md-4">
-                            Preferred Name:
-                            <br />
-                            Phone:
-                            <br />
-                            Fax:
-                            <br />
-                            Email:
-                            <br />
-                            Member Since:
-                        </div>
-                        <div class="col-md-4">
-                            @Html.DisplayFor(modelItem => item.PreferredName)
-                            <br />
-                            @Html.DisplayFor(modelItem => item.PhoneNumber)
-                            <br />
-                            @Html.DisplayFor(modelItem => item.FaxNumber)
-                            <br />
-                            @Html.DisplayFor(modelItem => item.EmailAddress)
-                            <br />
-                            @item.ValidFrom.Date.ToString("MM/yyyy")
+                            <table class="table">
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ItemPurchaseList.FirstOrDefault().StockItemID)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ItemPurchaseList.FirstOrDefault().ItemDescription)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ItemPurchaseList.FirstOrDefault().LineProfit)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ItemPurchaseList.FirstOrDefault().SalesPerson)
+                                    </th>
+                                </tr>
+
+                                @foreach (var item in Model.FirstOrDefault().ItemPurchaseList)
+                                {
+                                 <tr>
+                                 <td>
+                                    @Html.DisplayFor(modelItem => item.StockItemID)
+                                 </td>
+                                 <td>
+                                    @Html.DisplayFor(modelItem => item.ItemDescription)
+                                 </td>
+                                 <td>
+                                    @string.Format("{0:C}", item.LineProfit)
+                                 </td>
+                                 <td>
+                                    @Html.DisplayFor(modelItem => item.SalesPerson)
+                                 </td>
+                                    </tr>
+                                }
+                            </table>
                         </div>
                     </div>
                 </div>
-            }
         </div>
         <br />
-
+        }
     </div>
 
 </body>
