@@ -12,10 +12,12 @@ $("#textString").keypress(function (e) {
     /// check console type for space
     if (e.keyCode == 0 || e.keyCode == 32) {
         /// split input words
-        var prev_word = word.toString().split(" ")
+        var prev_word = word.toString().split(" ");
+
         /// get last word
         var lastWord = prev_word[prev_word.length - 1];
-        console.log("Last word typed was: " + lastWord);
+        $("#phrase").append(" "+lastWord);
+        console.log("Last word was this " + lastWord);
         /// compare last word to noun array
         for (i = 0; i < nouns.length; i++) {
             if (lastWord.match(nouns[i])) {
@@ -36,17 +38,38 @@ $("#textString").keypress(function (e) {
     if (check == 1) {
 
         var source = "/GiphyAPI/gif/" + lastWord;
+
+
         // Send an async request to our server, requesting JSON back
         $.ajax({
             type: "GET",
             dataType: "json",
             url: source,
-            ///success: displayData,
+            success: displayData,
             error: errorOnAjax
         });
     }
 });
 
+// Display the data that we've retrieved
+function displayData(data) {
+    console.log("the data " + data);
+    //$("#message").text(data["gifVal"]);
+    var str = $("#textString").val();
+    str = str.trim().split(' ');
+    console.log("The string: " + str + " the length: " + str.length)
+    str[str.length - 1] = data["gifVal"];
+    str = str.join(" ");
+    $("#message").text(str);
+    //{ "data": { "type": "gif", "id": "l41JWfpGyDhsbQzh6", "slug": "cartoon-car-l41JWfpGyDhsbQzh6", "url": "https:\/\/giphy.com\/stickers\/cartoon-car-l41JWfpGyDhsbQzh6", "bitly_gif_url": "https:\/\/gph.is\/2uuth9W", "bitly_url": "https:\/\/gph.is\/2uuth9W", "embed_url": "https:\/\/giphy.com\/embed\/l41JWfpGyDhsbQzh6", "username": "barcthedog", "source": "", "rating": "g", "content_url": "", "source_tld": "", "source_post_url": "", "is_sticker": 1, "import_datetime": "2017-08-10 18:45:36", "trending_datetime": "2018-02-11 07:15:01", "user": { "avatar_url": "https:\/\/media.giphy.com\/avatars\/alexanderlansang\/OXNRI7F1G1SH.gif", "banner_url": "https:\/\/media.giphy.com\/headers\/alexanderlansang\/ZVHIiiTZ2Y8P.jpg", "profile_url": "https:\/\/giphy.com\/barcthedog\/", "username": "barcthedog", "display_name": "BARC the dog", "guid": "", "is_verified": true }, "images": { "fixed_height_still": { "url": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/200_s.gif", "width": "187", "height": "200", "size": "7405" }, "original_still": { "url": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/giphy_s.gif", "width": "400", "height": "428", "size": "10599" }, "fixed_width": { "url": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/200w.gif", "width": "200", "height": "214", "size": "20922", "mp4": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/200w.mp4", "mp4_size": "28808", "webp": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/200w.webp", "webp_size": "16012" }, "fixed_height_small_still": { "url": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/100_s.gif", "width": "94", "height": "100", "size": "4008" }, "fixed_height_downsampled": { "url": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/200_d.gif", "width": "187", "height": "200", "size": "24959", "webp": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/200_d.webp", "webp_size": "20370" }, "preview": { "width": "355", "height": "380", "mp4": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/giphy-preview.mp4", "mp4_size": "47040" }, "fixed_height_small": { "url": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/100.gif", "width": "94", "height": "100", "size": "11571", "mp4": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/100.mp4", "mp4_size": "16587", "webp": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/100.webp", "webp_size": "10246" }, "downsized_still": { "url": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/giphy-downsized_s.gif", "width": "400", "height": "428", "size": "10599" }, "downsized": { "url": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/giphy-downsized.gif", "width": "400", "height": "428", "size": "38864" }, "downsized_large": { "url": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/giphy.gif", "width": "400", "height": "428", "size": "38864" }, "fixed_width_small_still": { "url": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/100w_s.gif", "width": "100", "height": "107", "size": "3433" }, "preview_webp": { "url": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/giphy-preview.webp", "width": "400", "height": "428", "size": "21888" }, "fixed_width_still": { "url": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/200w_s.gif", "width": "200", "height": "214", "size": "6101" }, "fixed_width_small": { "url": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/100w.gif", "width": "100", "height": "107", "size": "10235", "mp4": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/100w.mp4", "mp4_size": "11784", "webp": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/100w.webp", "webp_size": "9078" }, "downsized_small": { "width": "400", "height": "428", "mp4": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/giphy-downsized-small.mp4", "mp4_size": "62902" }, "fixed_width_downsampled": { "url": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/200w_d.gif", "width": "200", "height": "214", "size": "20922", "webp": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/200w_d.webp", "webp_size": "16012" }, "downsized_medium": { "url": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/giphy.gif", "width": "400", "height": "428", "size": "38864" }, "original": { "url": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/giphy.gif", "width": "400", "height": "428", "size": "38864", "frames": "4", "mp4": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/giphy.mp4", "mp4_size": "77304", "webp": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/giphy.webp", "webp_size": "21888", "hash": "757f515b74ebf36c94f8670b4adc9eeb" }, "fixed_height": { "url": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/200.gif", "width": "187", "height": "200", "size": "24959", "mp4": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/200.mp4", "mp4_size": "26746", "webp": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/200.webp", "webp_size": "20370" }, "looping": { "mp4": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/giphy-loop.mp4", "mp4_size": "1361931" }, "original_mp4": { "width": "480", "height": "512", "mp4": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/giphy.mp4", "mp4_size": "77304" }, "preview_gif": { "url": "https:\/\/media1.giphy.com\/media\/l41JWfpGyDhsbQzh6\/giphy-preview.gif", "width": "400", "height": "428", "size": "38864" }, "480w_still": { "url": "https:\/\/media4.giphy.com\/media\/l41JWfpGyDhsbQzh6\/480w_s.jpg", "width": "480", "height": "514" } }, "title": "car driving Sticker by BARC the dog", "_score": 2000016.6, "_topScoreQuotient": 0.80000023999808 }, "meta": { "status": 200, "msg": "OK", "response_id": "5be7389b7477737441e56823" } }
+
+    /*
+    var prev_word = str.toString().split(" ");
+    var last = prev_word;
+    console.log("In the display: " + last);
+    */
+
+}
 
 
 function errorOnAjax() {
