@@ -4,15 +4,20 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 using System.Net;
 using System.IO;
+using homework7_2.DAL;
+using homework7_2.Models;
 
 namespace homework7_2.Controllers
 {
     public class GiphyAPIController : Controller
     {
+        private RecordsInputContext db = new RecordsInputContext();
+
         // GET: GiphyAPI/RandomNumbers/10
-        public JsonResult gif(string word)
+        public JsonResult Gif(string word)
         {
 
             string apiKey = System.Web.Configuration.WebConfigurationManager.AppSettings["giphyAPIkey"];
@@ -25,14 +30,30 @@ namespace homework7_2.Controllers
             using (var sr = new StreamReader(response.GetResponseStream()))
             {
                 text = sr.ReadToEnd();
+                sr.Close();
             }
+            string fullData = JObject.Parse(text)["data"].ToString();
+            string embed = JObject.Parse(fullData)["embed_url"].ToString();
+            Console.WriteLine(response);
 
-            Console.WriteLine(text);
+            var ip = Request.UserHostAddress;
+            var agent = Request.Browser.Type;
+            Console.WriteLine(ip + ": " + agent);
+
+            var newRecord = new RecordsInput
+            {
+                Date = DateTime.Now,
+                Input = word,
+                IP = ip,
+                BrowserAG = agent
+            };
+            db.Record.Add(newRecord);
+            db.SaveChanges();
+
             var data = new
             {
-
-                message = word + " is a verb/noun",
-                gifVal = text
+                thing = ip + ": " + agent,
+                urlGifEm = embed
             };
             return Json(data, JsonRequestBehavior.AllowGet);
         }
