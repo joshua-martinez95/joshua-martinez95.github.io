@@ -1,16 +1,13 @@
 ﻿@{
     ViewBag.Title = "Index";
 }
-<header>
-
-</header>
+<header></header>
 <script>
 
 </script>
 
 <div style="text-align: center;">
     <h2>Internet Language Translator</h2>
-    <img src="https://giphy.com/embed/7hqG8IJQRU1Qk" />
     <br />
     <input style="width: 100%" type="text" id="textString" name="textString" placeholder="Start typing your message here..." /><br /><br />
     <div id="phrase"></div>
@@ -20,5 +17,6 @@
 
 @section PageScripts
 {
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="~/Scripts/giphyScript.js"></script>
 }
