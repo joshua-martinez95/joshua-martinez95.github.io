@@ -1,1 +1,1 @@
-﻿
+﻿DROP TABLE [dbo].[RecordsInputs];

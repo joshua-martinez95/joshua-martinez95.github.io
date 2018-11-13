@@ -35,8 +35,8 @@ $("#textString").keypress(function (e) {
             }
         }
     }
-    //console.log("Key pressed\n");
 
+    // if last word was special
     if (check == 1) {
 
         var source = "/GiphyAPI/Gif/" + lastWord;
@@ -51,6 +51,7 @@ $("#textString").keypress(function (e) {
             error: errorOnAjax
         });
     }
+    /// if last word wasn't in the list
     else if (check == 2) {
         $("#phrase").append(lastWord + " ");
     }
@@ -59,14 +60,17 @@ $("#textString").keypress(function (e) {
 // Display the data that we've retrieved
 function displayData(data) {
     console.log("the data " + data["thing"]);
-    //
+    // get string and turn it into a value
     var str = $("#textString").val();
+    // split by space
     str = str.trim().split(' ');
     //console.log("The string: " + str + " the length: " + str.length);
     //console.log(data["urlGifEm"]);
+    // insert a space
     str[str.length - 1] = " "
+    // joing via spaces
     str = str.join(" ");
-    //
+    // insert gif
     $("#phrase").append("<iframe src='" + data.urlGifEm + "' height='100' width='100'frameBorder='0'>");
 
 }
