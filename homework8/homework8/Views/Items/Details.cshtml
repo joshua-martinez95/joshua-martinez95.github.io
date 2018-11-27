@@ -35,8 +35,48 @@
         </dd>
 
     </dl>
+    <div class="row"> <h4>Active Bids:</h4>
+    <ul class="col-md-6" id="BuyersList" ></ul>
+    </div>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ItemID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+@Scripts.Render("~/bundles/jquery")
+<script>
+    var interval = 1000 * 5;
+    window.setInterval(ajax_call, interval);
+    console.log("doing some json work");
+
+    /// might want to get id from text field
+    function ajax_call() {
+        var id = @Model.ItemID;
+        source = '/Items/bidsList/'+id;
+
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: source,
+            success: displayData,
+            error: errorOnAjax
+
+        });
+    };
+
+    function displayData(data) {
+        console.log("success");
+        $('#BuyersList').empty();
+        for (i = 0; i < data.array.length; i++)
+        {
+            console.log(data.array[i]);
+            $("#BuyersList").append(data.array[i]);
+            //$("#PriceBidList").append("<li>" + data.array[i].Price + "</li>");
+        }
+    }
+
+    function errorOnAjax() {
+        console.log("error");
+    }
+</script>

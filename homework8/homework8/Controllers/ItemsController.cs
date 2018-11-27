@@ -128,5 +128,27 @@ namespace homework8.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public JsonResult bidsList(int id)
+        {
+            var bids = db.Items.Find(id).Bids.ToList().OrderByDescending(ord => ord.Price).Select(tempBid => new
+            {
+                bName = tempBid.BuyerID,
+                bidPrice = tempBid.BidID
+            }).ToList();
+
+            Console.Write("Then length is: " + bids.Count + "\n");
+
+            string[] bidsL = new string[bids.Count];
+
+            Console.WriteLine("Going into loop");
+            for(int i = 0; i < bidsL.Length; i++)
+            {
+                Console.WriteLine(i + " round");
+                bidsL[i] = $"<ul>{db.Buyers.Find(bids[i].bName).Name} bid ${db.Bids.Find(bids[i].bidPrice).Price}</ul>";
+            }
+            var data = new { array = bidsL , listCount = bids.Count};
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
     }
 }
