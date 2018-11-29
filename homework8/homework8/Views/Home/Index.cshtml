@@ -47,9 +47,13 @@
                 @Html.DisplayFor(modelItem => item.Timestamp)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ItemID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ItemID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ItemID })
+                @if (item.Timestamp.Date == DateTime.Today)
+                {
+                    DateTime today = item.Timestamp;
+                    @today.ToString("h:mm:ss tt")
+                }
+                else
+                { @item.Timestamp}
             </td>
         </tr>
     }
